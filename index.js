@@ -8,8 +8,8 @@
  */
 function trimProperties(obj) {
   let newObj = {...obj}
-  for (let key in obj) {
-    newObj = {...newObj, [key]: obj[key].trim()} 
+  for (let key in newObj) {
+    newObj[key] = newObj[key].trim() 
   }
   return newObj
 }
@@ -24,7 +24,7 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   for (let key in obj) {
-    obj = {...obj, [key]: obj[key].trim()} 
+    obj[key]= obj[key].trim()
   }
   return obj
 }
