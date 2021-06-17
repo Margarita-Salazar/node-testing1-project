@@ -53,7 +53,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
-    // ✨ initialize whatever properties are needed
+    this.initialNumber = initialNumber
   }
 
   /**
@@ -69,7 +69,8 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
+    return this.initialNumber > 0 ? this.initialNumber-- : 0
+  
   }
 }
 
@@ -78,7 +79,8 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.seasons = ['summer', 'fall', 'winter', 'spring']
+    this.key = 0
   }
 
   /**
@@ -94,7 +96,9 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    let season = this.seasons[this.key]
+    this.key === 3 ? this.key = 0: this.seasons[this.key++] 
+    return season
   }
 }
 
@@ -108,7 +112,7 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
+    this.mgp = mpg
   }
 
   /**
@@ -125,7 +129,13 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
+    let milesNeeded = this.mpg * this.tank
+    if(distance <= milesNeeded) {
+      this.odometer = this.odometer + distance
+      return this.odometer
+    } else {
+      return milesNeeded
+    }
   }
 
   /**
